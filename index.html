@@ -13,6 +13,9 @@
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
         crossorigin=""></script>
         <style>
+            body{
+                font-family: system-ui, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+            }
             #map{ 
                 height: 82vh;
                 width: 100%;
@@ -24,8 +27,10 @@
         <div id="map"></div>
         <p>Data updates every 20 seconds.</p>
         
+
+        <!--Leaflet + VM Data-->
         <script>
-            var map = L.map('map').setView([33.4482, -112.0777], 11);
+            var map = L.map('map').setView([33.4332, -111.9758], 11);
 
             L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
             maxZoom: 19,
@@ -151,12 +156,33 @@
                         else if (idNum >= 4522 && idNum <= 4524) {
                             vehicleType = `2018 Gillig Low Floor CNG 35'`
                         }
+                        else if (idNum >= 5001 && idNum <= 5120) {
+                            vehicleType = `2014 New Flyer C40LFR`
+                        }
+                        else if (idNum >= 5121 && idNum <= 5200) {
+                            vehicleType = `2016 Gillig Low Floor CNG 40'`
+                        }
+                        else if (idNum >= 5201 && idNum <= 5240) {
+                            vehicleType = `2017 Gillig Low Floor CNG 40'`
+                        }
+                        else if (idNum >= 5241 && idNum <= 5274) {
+                            vehicleType = `2018 Gillig Low Floor CNG 40'`
+                        }
+                        else if (idNum >= 5275 && idNum <= 5278) {
+                            vehicleType = `2020 New Flyer XN40`
+                        }
+                        else if (idNum >= 5279 && idNum <= 5318) {
+                            vehicleType = `2023 Gillig Low Floor CNG 40'`
+                        }
                         else if (idNum >= 5319 && idNum <= 5336) {
                             vehicleType = `2023 Gillig Low Floor CNG 40'`
                         } 
                         else if (idNum >= 5337 && idNum <= 5353) {
                             vehicleType = `2024 Gillig Low Floor CNG 40'`
-                        } 
+                        }
+                        else if (idNum >= 5400 && idNum <= 5419) {
+                            vehicleType = `2025 Gillig Low Floor Plus EV 40'`
+                        }
                         else if (idNum >= 5600 && idNum <= 5611) {
                             vehicleType = `2018 Gillig Low Floor 40'`
                         } 
@@ -164,25 +190,28 @@
                             vehicleType = `2019 Gillig Low Floor 40'`
                         } 
                         else if (idNum >= 5645 && idNum <= 5661) {
-                            vehicleType = `2020 NFI XD40`
+                            vehicleType = `2020 New Flyer XD40`
                         } 
                         else if (idNum >= 5662 && idNum <= 5691) {
-                            vehicleType = `2021 NFI XD40`
+                            vehicleType = `2021 New Flyer XD40`
                         } 
                         else if (idNum >= 5692 && idNum <= 5711) {
-                            vehicleType = `2024 NFI XDE40`
+                            vehicleType = `2024 New Flyer XDE40`
                         } 
+                        else if (idNum >= 5712 && idNum <= 5736) {
+                            vehicleType = `2025 New Flyer XDE40`
+                        }
                         else if (idNum >= 6676 && idNum <= 6697) {
-                            vehicleType = `2011 NFI C40LFR`
+                            vehicleType = `2011 New Flyer C40LFR`
                         } 
                         else if (idNum >= 6698 && idNum <= 6713) {
-                            vehicleType = `2012 NFI C40LFR`
+                            vehicleType = `2012 New Flyer C40LFR`
                         } 
                         else if (idNum >= 6714 && idNum <= 6733) {
-                            vehicleType = `2012 NFI C40LFR (suburban)`
+                            vehicleType = `2012 New Flyer C40LFR (Suburban)`
                         } 
                         else if (idNum >= 6734 && idNum <= 6749) {
-                            vehicleType = `2012 NFI C40LFR`
+                            vehicleType = `2012 New Flyer C40LFR`
                         } 
                         else if (idNum >= 6750 && idNum <= 6758) {
                             vehicleType = `2016 Gillig Low Floor CNG 40'`
@@ -194,22 +223,22 @@
                             vehicleType = `2018 Gillig Low Floor CNG 40'`
                         } 
                         else if (idNum >= 6811 && idNum <= 6822) {
-                            vehicleType = `2018 NFI XN40`
+                            vehicleType = `2018 New Flyer XN40`
                         }
                         else if(idNum >= 6823 && idNum <= 6846){
-                            vehicleType = `2019 NFI XN40`
+                            vehicleType = `2019 New Flyer XN40`
                         }
                         else if(idNum >= 6847 && idNum <= 6873){
-                            vehicleType = `2020 NFI XN40`
+                            vehicleType = `2020 New Flyer XN40`
                         }
                         else if(idNum >= 6874 && idNum <= 6885){
-                            vehicleType = `2021 NFI XD40`
+                            vehicleType = `2021 New Flyer XD40`
                         }
                         else if(idNum >= 6886 && idNum <= 6898){
-                            vehicleType = `2021 NFI XN40`
+                            vehicleType = `2021 New Flyer XN40`
                         }
                         else if(idNum >= 7001 && idNum <= 7009){
-                            vehicleType = `2010 NFI D40LFA`
+                            vehicleType = `2010 New Flyer D40LFA`
                         }
                         else if(idNum >= 7010 && idNum <= 7013) {
                             vehicleType = `2020 MCI D45CRT LE`
@@ -218,43 +247,43 @@
                             vehicleType = `2021 MCI D45CRT LE`
                         }
                         else if(idNum >= 7165 && idNum <= 7172){
-                            vehicleType = `2016 NFI XN60`
+                            vehicleType = `2016 New Flyer XN60`
                         }
                         else if(idNum >= 7173 && idNum <= 7174){
-                            vehicleType = `2018 NFI XN60`
+                            vehicleType = `2018 New Flyer XN60`
                         }
                         else if(idNum >= 7175 && idNum <= 1785){
-                            vehicleType = `2019 NFI XN60`
+                            vehicleType = `2019 New Flyer XN60`
                         }
                         else if(idNum >= 7186 && idNum <= 7192){
-                            vehicleType = `2020 NFI XN60`
+                            vehicleType = `2020 New Flyer XN60`
                         }
                         else if(idNum >= 7300 && idNum <= 7309){
-                            vehicleType = `2017 NFI XN40`
+                            vehicleType = `2017 New Flyer XN40`
                         }
                         else if(idNum >= 7310 && idNum <= 7323){
-                            vehicleType = `2019 NFI XN40`
+                            vehicleType = `2019 New Flyer XN40`
                         }
                         else if(idNum >= 7324 && idNum <= 7328){
-                            vehicleType = `2020 NFI XN40`
+                            vehicleType = `2020 New Flyer XN40`
                         }
                         else if(idNum >= 8065 && idNum <= 8081){
-                            vehicleType = `2011 NFI DE60LFR`
+                            vehicleType = `2011 New Flyer DE60LFR`
                         }
                         else if(idNum >= 8082 && idNum <= 8101){
-                            vehicleType = `2016 NFI XD60`
+                            vehicleType = `2016 New Flyer XD60`
                         }
                         else if(idNum >= 8102 && idNum <= 8121){
-                            vehicleType = `2017 NFI XD60`
+                            vehicleType = `2017 New Flyer XD60`
                         }
                         else if(idNum >= 8122 && idNum <= 8127){
-                            vehicleType = `2019 NFI XD60`
+                            vehicleType = `2019 New Flyer XD60`
                         }
                         else if(idNum >= 8128 && idNum <= 8155){
-                            vehicleType = `2020 NFI XD60`
+                            vehicleType = `2020 New Flyer XD60`
                         }
                         else if(idNum >= 8521 && idNum <= 8530){
-                            vehicleType = `2017 NFI XN60`
+                            vehicleType = `2017 New Flyer XN60`
                         }
                         else {
                             vehicleType = `Unknown Bus Model`;
