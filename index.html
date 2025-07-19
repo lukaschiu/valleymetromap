@@ -3,7 +3,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Leaflet Test</title>
+        <title>Valley Metro Vehicle Locations</title>
         <!--Water.css-->
         <!--Leaflet-->
         <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" 
@@ -33,7 +33,7 @@
             }).addTo(map);
 
             var vmLRV = L.icon({
-                iconUrl: `./vmLRV.png`,
+                iconUrl: `vmLRV.png`,
                 iconSize: [15,20],
                 iconAnchor: [0,0],
                 popupAnchor: [10,0]
@@ -47,10 +47,10 @@
                 }
             });
 
-            var vmBusIcon = new busIcon({iconUrl: `./vmBusIcon.png`}),
-                vmBusIconExpressRapid = new busIcon({iconUrl: `./vmBusIconExpressRapid.png`}),
-                vmBusIconNeighborhood = new busIcon({iconUrl: `./vmBusIconNeighborhood.png`}),
-                vmNotInService = new busIcon({iconUrl: `./vmNotInService.png`});
+            var vmBusIcon = new busIcon({iconUrl: `vmBusIcon.png`}),
+                vmBusIconExpressRapid = new busIcon({iconUrl: `vmBusIconExpressRapid.png`}),
+                vmBusIconNeighborhood = new busIcon({iconUrl: `vmBusIconNeighborhood.png`}),
+                vmNotInService = new busIcon({iconUrl: `vmNotInService.png`});
 
             //L.marker([33.4482, -112.0777], {icon: vmBusIcon}).addTo(map);
             const vm_api_url = 'https://mna.mecatran.com/utw/ws/gtfsfeed/vehicles/valleymetro?apiKey=4f22263f69671d7f49726c3011333e527368211f&asJson=true'
