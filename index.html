@@ -22,7 +22,7 @@
     <body>
         <h1>Valley Metro Vehicle Locations</h1>
         <div id="map"></div>
-        <p>Data updates every 30 seconds.</p>
+        <p>Data updates every 20 seconds.</p>
         
         <script>
             var map = L.map('map').setView([33.4482, -112.0777], 11);
@@ -33,7 +33,7 @@
             }).addTo(map);
 
             var vmLRV = L.icon({
-                iconUrl: `/valleymetromap/vmLRV.png`,
+                iconUrl: `/vmLRV.png`,
                 iconSize: [15,20],
                 iconAnchor: [0,0],
                 popupAnchor: [10,0]
@@ -47,10 +47,10 @@
                 }
             });
 
-            var vmBusIcon = new busIcon({iconUrl: `/valleymetromap/vmBusIcon.png`}),
-                vmBusIconExpressRapid = new busIcon({iconUrl: `/valleymetromap/vmBusIconExpressRapid.png`}),
-                vmBusIconNeighborhood = new busIcon({iconUrl: `/valleymetromap/vmBusIconNeighborhood.png`}),
-                vmNotInService = new busIcon({iconUrl: `/valleymetromap/vmNotInService.png`});
+            var vmBusIcon = new busIcon({iconUrl: `/vmBusIcon.png`}),
+                vmBusIconExpressRapid = new busIcon({iconUrl: `/vmBusIconExpressRapid.png`}),
+                vmBusIconNeighborhood = new busIcon({iconUrl: `/vmBusIconNeighborhood.png`}),
+                vmNotInService = new busIcon({iconUrl: `/vmNotInService.png`});
 
             //L.marker([33.4482, -112.0777], {icon: vmBusIcon}).addTo(map);
             const vm_api_url = 'https://mna.mecatran.com/utw/ws/gtfsfeed/vehicles/valleymetro?apiKey=4f22263f69671d7f49726c3011333e527368211f&asJson=true'
@@ -276,21 +276,21 @@
                             //if statement prevents lrvs from showing up in strange places on the map
                             if(routeId == undefined){}
                             else{
-                                L.marker([latitude, longitude], {icon: vmLRV}).addTo(iconLayer).bindPopup(`<strong>${vehicleType}</strong><br>${routeDisplay}<br>${finalDestinationDisplay}`);
+                                L.marker([latitude, longitude], {icon: vmLRV}).addTo(iconLayer).bindPopup(`<strong>${vehicleType}</strong> (${idNum})<br>${routeDisplay}<br>${finalDestinationDisplay}`);
                             }
                         }
                         else if(routeId == undefined){
-                            L.marker([latitude, longitude], {icon: vmNotInService}).addTo(iconLayer).bindPopup(`<strong>${vehicleType}</strong><br>${routeDisplay}<br>${finalDestinationDisplay}`);
+                            L.marker([latitude, longitude], {icon: vmNotInService}).addTo(iconLayer).bindPopup(`<strong>${vehicleType}</strong> (${idNum})<br>${routeDisplay}<br>${finalDestinationDisplay}`);
   
                         }
                         else if(rapidRoutes.includes(routeId)){
-                            L.marker([latitude, longitude], {icon: vmBusIconExpressRapid}).addTo(iconLayer).bindPopup(`<strong>${vehicleType}</strong><br>${routeDisplay}<br>${finalDestinationDisplay}`);
+                            L.marker([latitude, longitude], {icon: vmBusIconExpressRapid}).addTo(iconLayer).bindPopup(`<strong>${vehicleType}</strong> (${idNum})<br>${routeDisplay}<br>${finalDestinationDisplay}`);
                         }
                         else if(circulators.includes(routeId)){
-                            L.marker([latitude, longitude], {icon: vmBusIconNeighborhood}).addTo(iconLayer).bindPopup(`<strong>${vehicleType}</strong><br>${routeDisplay}<br>${finalDestinationDisplay}`);
+                            L.marker([latitude, longitude], {icon: vmBusIconNeighborhood}).addTo(iconLayer).bindPopup(`<strong>${vehicleType}</strong> (${idNum})<br>${routeDisplay}<br>${finalDestinationDisplay}`);
                         }
                         else{
-                            L.marker([latitude, longitude], {icon: vmBusIcon}).addTo(iconLayer).bindPopup(`<strong>${vehicleType}</strong><br>${routeDisplay}<br>${finalDestinationDisplay}`);
+                            L.marker([latitude, longitude], {icon: vmBusIcon}).addTo(iconLayer).bindPopup(`<strong>${vehicleType}</strong> (${idNum})<br>${routeDisplay}<br>${finalDestinationDisplay}`);
                         }
                     });
                     console.log(`Map Updated`);
@@ -301,7 +301,7 @@
             }
 
             getLocations();
-            setInterval(getLocations, 30000)
+            setInterval(getLocations, 20000)
         </script>
     </body>
 </html>
